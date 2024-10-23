@@ -13,7 +13,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         email: {},
         password: {},
       },
-      authorize: async (credentials) => {
+      authorize: async (credentials: any) => {
         console.log(credentials);
 
         const user = credentials;
@@ -28,15 +28,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           },
         });
 
-        
-
         if (!toFind) {
           const salt = await bcryptjs.genSalt(10);
           const hashpassword = await bcryptjs.hash(
             user.password as string,
             salt
-          )
-          
+          );
+
           const toSignup = await db.user.create({
             data: {
               email: user.email as string,
@@ -46,16 +44,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           return toSignup;
         }
- 
-        
+
         if (
-          await bcryptjs.compare (
+          await bcryptjs.compare(
             user.password as string,
             toFind?.password as string
           )
         ) {
           return toFind;
         }
+        return user;
         // logic to salt and hash password
 
         // logic to verify if the user exists
@@ -65,7 +63,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
   callbacks: {
     jwt: async ({ token, user }) => {
-      console.log({token, user});
+      console.log({ token, user });
       if (user) {
         token.id = user.id;
         token.email = user.email;
@@ -73,12 +71,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return token;
     },
 
-    session: async ({ session, token }:any) => {
+    session: async ({ session, token }: any) => {
       if (token) {
         session.user.id = token.id;
         session.user.email = token.email;
       }
       return session;
     },
-  }
+  },
 });

@@ -1,6 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { DeleteUser } from "./d-vimeo";
+ 
 import { DeleteAccount } from "./delete-account";
 
 export function Account() {

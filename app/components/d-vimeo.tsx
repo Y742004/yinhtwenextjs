@@ -4,13 +4,13 @@ import { Button } from "@nextui-org/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 
-export function DeleteVimeo({id}) {
+export function DeleteVimeo({id}: any) {
    
 
 const queryClient = useQueryClient( );
 
   const mutation = useMutation({
-    mutationFn: (formData: { videoForVimeo: string }) => {
+    mutationFn: (formData: { id: string }) => {
       return fetch("/api/vimeo", {
         method: "DELETE",
         headers: {

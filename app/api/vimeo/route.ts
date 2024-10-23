@@ -27,7 +27,7 @@ export async function PUT(req: NextRequest, res: NextResponse) {
   return NextResponse.json(toUpdate);
 }
 
-export async function DELETE(req, res) {
+export async function DELETE(req: NextRequest, res: NextResponse) {
     const wow = await req.json();
     const toDelete = await db.practice.delete({
       where: {

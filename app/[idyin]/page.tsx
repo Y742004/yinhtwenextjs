@@ -1,5 +1,5 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
+ 
 import { CommentSection, DescriptionBox, NavBaVimeo } from "../lms/vimeoUI";
 import { Lesson } from "../components/lesson";
 import {
@@ -16,6 +16,7 @@ import LoveReaction from "../reaction/components/loveReaction";
 import SadReaction from "../reaction/components/sadReaction";
 import WowReaction from "../reaction/components/wowReaction";
 import RichTextView from "../components/rich-text-editor/rich-text-view";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Page({ params }: any, {}) {
   const { isPending, error, data } = useQuery({
