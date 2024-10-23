@@ -1,7 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { DeleteUser } from "./d-vimeo";
-
+ 
 export function Users() {
   const { isPending, error, data } = useQuery({
     queryKey: ["repoData"],
@@ -18,7 +17,7 @@ export function Users() {
         <ul>
           {data.map((user: any) => (
             <li>
-              {user.email} <DeleteUser id={user.id} />
+              {user.email}  
             </li>
           ))}
         </ul>
