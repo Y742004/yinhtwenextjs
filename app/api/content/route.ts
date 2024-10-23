@@ -1,14 +1,14 @@
 // import { db } from "@/lib/db";
 import { db } from "@/lib/db";
 import { m } from "framer-motion";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req, res) {
+export async function GET(req: NextRequest, res: NextResponse) {
   const toRead = await db.content.findMany();
   return NextResponse.json(toRead);
 }
 
-export async function POST(req, res) {
+export async function POST(req: NextRequest, res: NextResponse) {
   const wow = await req.json();
   const toCreate = await db.content.create({
     data: { description: wow.description },
@@ -29,7 +29,7 @@ export async function POST(req, res) {
 //   return NextResponse.json(wow);
 // }
 
-export async function PUT(req, res) {
+export async function PUT(req: NextRequest, res: NextResponse) {
     const wow = await req.json();
     const toUpdate = await db.content.update({
         where: {
@@ -42,7 +42,7 @@ export async function PUT(req, res) {
     return NextResponse.json(wow);
 }
 
-export async function DELETE(req, res) {
+export async function DELETE(req: NextRequest, res: NextResponse) {
     const wow = await req.json();
     const toDelete = await db.content.delete({
       where: {
