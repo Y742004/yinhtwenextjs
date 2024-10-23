@@ -3,13 +3,13 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 
-export function DeleteContent({id}) {
+export function DeleteContent({id}: {id: string}) {
   
 
 const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: (formData: { description: string }) => {
+    mutationFn: (formData: { id: string }) => {
       return fetch("/api/content", {
         method: "DELETE",
         headers: {
