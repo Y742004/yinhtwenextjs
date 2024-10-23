@@ -5,7 +5,7 @@ import { useState } from "react";
  
  
 
-export default function SadReaction({type, youtubeId, userId}) {
+export default function SadReaction({type, youtubeId, userId}: {type: string, youtubeId: string, userId: string}) {
     const queryClient = useQueryClient();
 
   const mutation = useMutation({

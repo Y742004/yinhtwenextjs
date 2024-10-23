@@ -6,7 +6,7 @@ import { Reaction } from "../reaction";
  
 
 
-export default function LoveReaction({type, youtubeId, userId}) {
+export default function LoveReaction({type, youtubeId, userId}: {type: string, youtubeId: string, userId: string}) {
     const queryClient = useQueryClient();
 
   const mutation = useMutation({

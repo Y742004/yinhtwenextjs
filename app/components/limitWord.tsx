@@ -1,5 +1,5 @@
  import React from 'react'
-export function LimitWords({words, limit=10}) {
+export function LimitWords({words, limit=10}:any) {
 const abc= words;
   return (
     <>

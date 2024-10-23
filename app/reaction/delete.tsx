@@ -4,11 +4,11 @@ import { Button } from "@nextui-org/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 
-export function DeleteReaciton({ id }) {
+export function DeleteReaciton({ id }: { id: string }) {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: (formData: { type: string }) => {
+    mutationFn: (formData: { id: string }) => {
       return fetch("/api/reaction", {
         method: "DELETE",
         headers: {

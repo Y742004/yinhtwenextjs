@@ -4,11 +4,11 @@ import { Button } from "@nextui-org/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import React, { useState } from "react";
 
-export function DeleteVideo({ id }) {
+export function DeleteVideo({ id }: { id: string }) {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationFn: (formData: { videoId: string, title: string, description: string }) => {
+    mutationFn: (formData: {id: string  }) => {
       return fetch("/api/youtube", {
         method: "DELETE",
         headers: {
