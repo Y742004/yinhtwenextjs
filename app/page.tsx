@@ -18,6 +18,7 @@ import { SignIn } from "./components/signin-signout-form/sign-in";
 import { Sign } from "crypto";
 import { SignOut } from "./components/signin-signout-form/sign-out";
 import { h1 } from "framer-motion/client";
+import CommentBoxLoom from "./loom/Comment";
  
 export default async function Home() {
   const session = await auth();
@@ -31,6 +32,7 @@ export default async function Home() {
   }
   return (
     <>
+ 
     {JSON.stringify(session)}
     <CurrentUser/>
     <SignIn/>

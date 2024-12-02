@@ -14,12 +14,17 @@ datasource db {
 }
 
 model User {
-  id       String     @id @default(auto()) @map("_id") @db.ObjectId
-  email    String
-  password String
-  youtube  Youtube[]
-  reaction Reaction[]
-  sayar    Sayar[]
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  email       String
+  password    String
+  youtube     Youtube[]
+  reaction    Reaction[]
+  sayar       Sayar[]
+  feed        Feed[]
+  loom        Loom[]
+  comment     Comment[]
+  post        Post[]
+  postComment PostComment[]
 }
 
 model Content {
@@ -70,4 +75,55 @@ model Sayar {
   description String
   user        User?   @relation(fields: [userId], references: [id])
   userId      String? @db.ObjectId
+}
+
+model Feed {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  user        User?   @relation(fields: [userId], references: [id])
+  userId      String? @db.ObjectId
+}
+
+model Loom {
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  title   String
+  videoId String
+  user    User?     @relation(fields: [userId], references: [id])
+  userId  String?   @db.ObjectId
+  comment Comment[]
+}
+
+model Comment {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  text   String
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @db.ObjectId
+  loom   Loom?   @relation(fields: [loomId], references: [id])
+  loomId String? @db.ObjectId
+}
+
+model Post {
+  id          String        @id @default(auto()) @map("_id") @db.ObjectId
+  content     String
+  user        User?         @relation(fields: [userId], references: [id])
+  userId      String?       @db.ObjectId
+  postComment PostComment[]
+}
+
+model PostComment {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  text   String
+  user   User?   @relation(fields: [userId], references: [id])
+  userId String? @db.ObjectId
+  post   Post?   @relation(fields: [postId], references: [id])
+  postId String? @db.ObjectId
+}
+
+model Reservation {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  email       String
+  room        String
+  phoneNumber String
 }

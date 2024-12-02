@@ -1,13 +1,16 @@
 "use client"
 import { Button, Input } from "@nextui-org/react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { Reaction } from "../reaction";
+import { data } from "framer-motion/client";
  
 
 
 export default function LoveReaction({type, youtubeId, userId}: {type: string, youtubeId: string, userId: string}) {
     const queryClient = useQueryClient();
+
+    
 
   const mutation = useMutation({
     mutationFn: (formData: {
@@ -39,6 +42,10 @@ export default function LoveReaction({type, youtubeId, userId}: {type: string, y
         
         <Button isIconOnly className="text-xl" type="submit"> ❤️ </Button>
         </form>
+
+        
+
+         
        
         
         
