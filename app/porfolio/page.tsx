@@ -1,6 +1,7 @@
 "use client";
 
-import { Footer } from "./footer";
+import { ThemeSwitcher } from "../components/themeSwitcher";
+ import { Footer } from "./footer";
 import { HeroSection } from "./herosection";
 import { NavbarDemo } from "./navbar"
 import { Section1 } from "./section-1";
@@ -12,9 +13,10 @@ import { Skills } from "./ui/skills";
 export default function Page() {
     return (
         <>
-         <div className="bg-gray-100 py-3 px-5 ">
+         <div className="dark:bg-black bg-gray-100 py-3 px-5 ">
               
-           <NavbarDemo/>
+          <div className=""><NavbarDemo/> </div> 
+     
            <HeroSection/>
            <Section1/>
            <Section2/>

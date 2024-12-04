@@ -1,8 +1,10 @@
+import { ThemeSwitcher } from "../components/themeSwitcher";
+
 export function Footer() {
     return (
         <>
         <div className="mt-20">
-<div className="border bg-white px-10 pb-10 rounded-xl">
+<div className="border dark:border-gray-500 dark:bg-black bg-white px-10 pb-10 rounded-3xl">
     <div className=" lg:flex justify-between">
         <div className="flex flex-col gap-3">
             <p className="text-4xl font-semibold mt-10">
@@ -11,6 +13,7 @@ export function Footer() {
             <p className="text-gray-500">
                 © Polar Softwarer Inc. 2024
             </p>
+            <ThemeSwitcher/>
         </div>
 
         <div className="flex gap-20 mt-10">

@@ -1,7 +1,8 @@
 "use client";
+import {ThemeProvider as NextThemesProvider} from "next-themes";
 
 import { NextUIProvider } from "@nextui-org/react";
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react";
 
 import {
   QueryClient,
@@ -12,9 +13,14 @@ import {
 const queryClient = new QueryClient();
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-   <SessionProvider> <NextUIProvider>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </NextUIProvider>
+    <SessionProvider>
+      {" "}
+      <NextUIProvider>
+      <NextThemesProvider attribute="class" defaultTheme="dark">
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider></NextThemesProvider>
+      </NextUIProvider>
     </SessionProvider>
   );
 }

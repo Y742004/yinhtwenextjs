@@ -9,7 +9,7 @@ export function Section3() {
             Serving world-class developers, world-wide
           </p>
           <div className="grid lg:grid-cols-2 gap-5 mt-5">
-            <div className="border rounded-lg p-6 bg-white   ">
+            <div className="border dark:border-gray-500 dark:bg-black rounded-3xl p-6 bg-white   ">
               <div className="flex gap-2 ">
                 <div className="">
                   <Avatar
@@ -30,7 +30,7 @@ export function Section3() {
               </div>
             </div>
 
-            <div className="border rounded-lg p-6 bg-white   ">
+            <div className="border dark:border-gray-500 dark:bg-black rounded-3xl p-6 bg-white   ">
               <div className="flex gap-2 ">
                 <div className="">
                   <Avatar
@@ -50,7 +50,7 @@ export function Section3() {
                 </div>
               </div>
             </div>
-            <div className="border rounded-lg p-6 bg-white   ">
+            <div className="border dark:border-gray-500 dark:bg-black rounded-3xl p-6 bg-white   ">
               <div className="flex gap-2 ">
                 <div className="">
                   <Avatar

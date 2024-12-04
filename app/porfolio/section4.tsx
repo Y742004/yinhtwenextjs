@@ -44,8 +44,8 @@ export function Section4() {
   ]);
   return (
     <>
-      <div className="mt-10 space-y-5">
-        <div className="text-center ">
+      <div className="mt-10 space-y-5 pt-24" id="projects">
+        <div className="text-center "  >
           <p className="font-medium text-2xl">And threre is more!</p>
           <p className="text-gray-500 text-lg">Spline is constanly evolving</p>
         </div>
@@ -53,7 +53,7 @@ export function Section4() {
         <div className="grid grid-cols-3 gap-5">
           {projects.map((project) => (
             <div className="">
-              <div className="border text-center bg-white rounded-lg p-5 ">
+              <div className="border dark:border-gray-500 text-center dark:bg-black bg-white rounded-3xl p-5 ">
                 <Button isIconOnly className=" w-20 h-20 text-3xl font-bold  " >  </Button>
                 <div className="">
                   <p className="font-semibold">{project.projectName}</p>
